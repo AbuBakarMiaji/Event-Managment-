@@ -1,0 +1,287 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management Admin Dashboard</title>
+    <style>
+        /* ===== Basic Reset ===== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            min-height: 100vh;
+            background-color: #f4f6f9;
+        }
+
+        /* ===== Sidebar ===== */
+        .sidebar {
+            width: 250px;
+            background-color: #1f2937;
+            color: white;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            padding: 20px;
+            background-color: #111827;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            flex: 1;
+        }
+
+        .sidebar ul li {
+            padding: 15px 20px;
+            cursor: pointer;
+        }
+
+        .sidebar ul li:hover {
+            background-color: #374151;
+        }
+
+        /* ===== Main Content ===== */
+        .main-content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .header {
+            background-color: #fff;
+            padding: 15px 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        table th, table td {
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        table th {
+            background-color: #1f2937;
+            color: white;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .btn-primary { background-color: #3b82f6; }
+        .btn-danger { background-color: #ef4444; }
+        .btn-success { background-color: #10b981; }
+
+        /* Form */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 8px 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- ===== Sidebar ===== -->
+    <div class="sidebar">
+        <h2>Admin Dashboard</h2>
+        <ul>
+            <li onclick="showSection('dashboard')">Dashboard</li>
+            <li onclick="showSection('users')">User Management</li>
+            <li onclick="showSection('events')">Event Management</li>
+            <li onclick="showSection('tickets')">Ticket Management</li>
+            <li onclick="showSection('payments')">Payments & Reports</li>
+            <li onclick="showSection('vendors')">Vendors</li>
+            <li onclick="showSection('feedback')">Feedback</li>
+            <li onclick="showSection('settings')">Settings</li>
+        </ul>
+    </div>
+
+    <!-- ===== Main Content ===== -->
+    <div class="main-content">
+        <div class="header">
+            <h1 id="section-title">Dashboard</h1>
+            <span>Admin</span>
+        </div>
+
+        <!-- Dashboard Cards -->
+        <div id="dashboard" class="section">
+            <div class="cards">
+                <div class="card">
+                    <h3>Total Users</h3>
+                    <p>150</p>
+                </div>
+                <div class="card">
+                    <h3>Upcoming Events</h3>
+                    <p>12</p>
+                </div>
+                <div class="card">
+                    <h3>Tickets Sold</h3>
+                    <p>420</p>
+                </div>
+                <div class="card">
+                    <h3>Revenue</h3>
+                    <p>$5200</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- User Management Section -->
+        <div id="users" class="section" style="display:none;">
+            <h2>User Management</h2>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Action</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>John Doe</td>
+                    <td>john@example.com</td>
+                    <td>Attendee</td>
+                    <td>
+                        <button class="btn btn-primary">Edit</button>
+                        <button class="btn btn-danger">Delete</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Event Management Section -->
+        <div id="events" class="section" style="display:none;">
+            <h2>Event Management</h2>
+            <form id="event-form">
+                <div class="form-group">
+                    <label>Event Name:</label>
+                    <input type="text" placeholder="Event Name">
+                </div>
+                <div class="form-group">
+                    <label>Date:</label>
+                    <input type="date">
+                </div>
+                <div class="form-group">
+                    <label>Time:</label>
+                    <input type="time">
+                </div>
+                <div class="form-group">
+                    <label>Venue:</label>
+                    <input type="text" placeholder="Venue">
+                </div>
+                <div class="form-group">
+                    <label>Description:</label>
+                    <textarea placeholder="Event Description"></textarea>
+                </div>
+                <button type="submit" class="btn btn-success">Add Event</button>
+            </form>
+        </div>
+
+        <!-- Ticket Management -->
+        <div id="tickets" class="section" style="display:none;">
+            <h2>Ticket Management</h2>
+            <p>List of ticket sales and attendees will appear here.</p>
+        </div>
+
+        <!-- Payments & Reports -->
+        <div id="payments" class="section" style="display:none;">
+            <h2>Payments & Reports</h2>
+            <p>Financial summary and reports will appear here.</p>
+        </div>
+
+        <!-- Vendor Management -->
+        <div id="vendors" class="section" style="display:none;">
+            <h2>Vendor Management</h2>
+            <p>List of vendors and their services will appear here.</p>
+        </div>
+
+        <!-- Feedback Section -->
+        <div id="feedback" class="section" style="display:none;">
+            <h2>Feedback</h2>
+            <p>Event reviews and feedback management here.</p>
+        </div>
+
+        <!-- Settings Section -->
+        <div id="settings" class="section" style="display:none;">
+            <h2>System Settings</h2>
+            <p>Configure roles, payment gateways, templates, etc.</p>
+        </div>
+
+    </div>
+
+    <!-- ===== JavaScript ===== -->
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(sec => sec.style.display = 'none'); // hide all
+            document.getElementById(sectionId).style.display = 'block';
+            document.getElementById('section-title').innerText = sectionId.charAt(0).toUpperCase() + sectionId.slice(1);
+        }
+
+        // Event form example submit
+        document.getElementById('event-form')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Event added successfully (placeholder)');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
