@@ -53,10 +53,10 @@
  
         <i class="fas fa-times" id="form-close"></i>
 
-        <form action="">
+        <form action="login_check.php" method="POST">
             <h3>Login</h3>
-            <input type="email" class="box" placeholder="Enter your email">
-            <input type="password" class="box" placeholder="Enter your password">
+            <input type="email" class="box" name="email" placeholder="Enter your email">
+            <input type="password" class="box" name="password" placeholder="Enter your password">
             <input type="submit" value="login now" class="btn">
             <input type="checkbox" id="remember">
             <label for="remember">remember me </label>
