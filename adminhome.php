@@ -1,3 +1,15 @@
+<?php
+
+session_start();
+
+    if(!isset($_SESSION['usermail']))
+    {
+        header("location:index.php");
+    }
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,5 +19,7 @@
 </head>
 <body>
     <h1> admin </h1>
+
+    <a href="logout.php"> Logout </a>
 </body>
 </html>

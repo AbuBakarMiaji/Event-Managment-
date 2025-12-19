@@ -55,8 +55,8 @@
 
         <form action="login_check.php" method="POST">
             <h3>Login</h3>
-            <input type="email" class="box" name="email" placeholder="Enter your email">
-            <input type="password" class="box" name="password" placeholder="Enter your password">
+            <input type="email" class="box" name="email" placeholder="Enter your email" required>
+            <input type="password" class="box" name="password" placeholder="Enter your password" required>
             <input type="submit" value="login now" class="btn">
             <input type="checkbox" id="remember">
             <label for="remember">remember me </label>

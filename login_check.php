@@ -1,5 +1,8 @@
 <?php
 
+error_reporting(0);
+session_start();
+
 $host="localhost";
 $user="root";
 $password="";
@@ -28,12 +31,14 @@ if($_SERVER["REQUEST_METHOD"]== "POST")
 
     if ($row["usertype"] == "employee")
     {
+        $_SESSION['usermail']=$name;
         header("Location:employeehome.php");
     }
 
 
     elseif($row["usertype"]=="admin")
     {
+        $_SESSION['usermail']=$name;
         header("Location:adminhome.php");
     }
 
