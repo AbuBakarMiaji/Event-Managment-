@@ -44,7 +44,9 @@ if($_SERVER["REQUEST_METHOD"]== "POST")
 
     else
     {
-        echo "username or password do not match"; 
+        $_SESSION['wronglogin']="username or password do not match";
+       header("location:index.php");
+         
     }
 }
 

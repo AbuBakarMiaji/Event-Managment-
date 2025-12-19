@@ -1,3 +1,36 @@
+<?php
+    
+    error_reporting(0);
+    session_start();
+    session_destroy();
+
+    if($_SESSION['message'])
+    {
+        $message=$_SESSION['message'];
+
+
+        echo "<script type='text/javascript'>
+
+        alert('$message');
+        
+        </script>";
+    }
+
+    if($_SESSION['wronglogin'])
+    {
+        $wronglogin=$_SESSION['wronglogin'];
+
+
+        echo "<script type='text/javascript'>
+
+        alert('$wronglogin');
+        
+        </script>";
+    }
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -506,25 +539,25 @@
     </h1>
 
     <div class="container">
-    <form action="">
+    <form action="contact_data_input.php" method="POST">
 
         <label for="name">Name</label>
         <input type="text" id="name" name="name" placeholder="Enter your name..">
 
         <label for="number">Mobile Number</label>
-        <input type="number" id="number" name="number" placeholder="+880 01838796365">
+        <input type="number" id="number" name="number" placeholder="+880 01838796365" required>
 
         <label for="email">E-mail</label>
-        <input type="email" id="email" name="email" placeholder="abc@gmail.com">
+        <input type="email" id="email" name="email" placeholder="abc@gmail.com" required>
 
          <label for="subject">Subject</label>
-        <input type="text" id="subject" name="subject" placeholder="Enter your subject..">
+        <input type="text" id="subject" name="subject" placeholder="Enter your subject.." required>
 
 
         <label for="description">Description </label>
         <textarea id="description" name="description" placeholder="Write something.." style="height:200px"></textarea>
 
-        <input type="submit" value="Submit">
+        <input type="submit" name="submit" value="Submit">
 
     </form>
     </div>
