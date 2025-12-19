@@ -32,7 +32,7 @@ if($_SERVER["REQUEST_METHOD"]== "POST")
     }
 
 
-    elseif($row["usertype"]=="aadmin")
+    elseif($row["usertype"]=="admin")
     {
         header("Location:adminhome.php");
     }
