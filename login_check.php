@@ -39,7 +39,7 @@ if($_SERVER["REQUEST_METHOD"]== "POST")
     elseif($row["usertype"]=="admin")
     {
         $_SESSION['usermail']=$name;
-        header("Location:adminhome.php");
+        header("Location:admin_dashbord.php");
     }
 
     else
