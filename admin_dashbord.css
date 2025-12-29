@@ -101,7 +101,7 @@
         }
 
         table th {
-            background-color: #1f2937;
+            background-color: #1f2937; 
             color: white;
         }
 
@@ -116,6 +116,7 @@
             border-radius: 5px;
             cursor: pointer;
             color: white;
+            text-decoration: none;
         }
 
         .btn-primary { background-color: #3b82f6; }

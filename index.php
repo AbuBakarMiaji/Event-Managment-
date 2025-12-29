@@ -28,6 +28,34 @@
         </script>";
     }
 
+
+    $host="localhost";
+    $user="root";
+    $password="";
+
+    $db="event_management";
+
+    $data=mysqli_connect($host,$user,$password,$db);
+
+    $sql_anni="SELECT * from anniversary";
+    $result_anni=mysqli_query($data, $sql_anni);
+
+    $sql_bir="SELECT * from birthday";
+    $result_bir=mysqli_query($data, $sql_bir);
+
+    $sql_conc="SELECT * from concert";
+    $result_conc=mysqli_query($data, $sql_conc);
+
+    $sql_pic="SELECT * from picnic";
+    $result_pic=mysqli_query($data, $sql_pic);
+
+    $sql_wed="SELECT * from wedding";
+    $result_wed=mysqli_query($data, $sql_wed);
+
+    $sql_others="SELECT * from others";
+    $result_others=mysqli_query($data, $sql_others);
+
+
 ?>
 
 
@@ -203,15 +231,24 @@
             <img src="images/p-1.jpg" alt="">
             <div class="content">
                 <h3>For Birthday</h3>
+                
+                <?php
+                while($birthday=$result_bir -> fetch_assoc())
+                {
+                ?>
                 <ul>
-                <p>Decoration</p>
-                <p>Music and Photos</p>
-                <p>Food and Drinks</p>
-                <p>Invitation Card</p>
-                <p>For 100 Peoples</p>
+                <p><?php echo "{$birthday['fac1']}"; ?></p>
+                <p><?php echo "{$birthday['fac2']}"; ?></p>
+                <p><?php echo "{$birthday['fac3']}"; ?></p>
+                <p><?php echo "{$birthday['fac4']}"; ?></p>
+                <p>For <?php echo "{$birthday['people']}"; ?> Peoples</p>
                 </ul>
 
-                <div class="price">$90.00<span> $120.00</span></div>
+                <div class="price">BDT <?php echo "{$birthday['dprice']}"; ?> <span> BDT <?php echo "{$birthday['rprice']}"; ?></span></div>
+
+                 <?php
+                }
+                ?>
                 <a href="#" class="btn">Book now</a>
             </div>
         </div>
@@ -220,15 +257,23 @@
             <img src="images/p-2.jpg" alt="">
             <div class="content">
                 <h3>for wedding</h3>
+                <?php
+                while($wedding=$result_wed -> fetch_assoc())
+                {
+                ?>
                 <ul>
-                <p>Decoration</p>
-                <p>Music and Photos</p>
-                <p>Food and Drinks</p>
-                <p>Invitation Card</p>
-                <p>For 100 Peoples</p>
+                <p><?php echo "{$wedding['fac1']}"; ?></p>
+                <p><?php echo "{$wedding['fac2']}"; ?></p>
+                <p><?php echo "{$wedding['fac3']}"; ?></p>
+                <p><?php echo "{$wedding['fac4']}"; ?></p>
+                <p>For <?php echo "{$wedding['people']}"; ?> Peoples</p>
                 </ul>
 
-                <div class="price">$90.00<span> $120.00</span></div>
+                <div class="price">BDT <?php echo "{$wedding['dprice']}"; ?> <span> BDT <?php echo "{$wedding['rprice']}"; ?></span></div>
+
+                 <?php
+                }
+                ?>
                 <a href="#" class="btn">Book now</a>
             </div>
         </div>
@@ -237,15 +282,24 @@
             <img src="images/p-3.jpg" alt="">
             <div class="content">
                 <h3>for concert</h3>
+                <?php
+                while($concert=$result_conc -> fetch_assoc())
+                {
+                ?>
                 <ul>
-                <p>Decoration</p>
-                <p>Music and Photos</p>
-                <p>Food and Drinks</p>
-                <p>Invitation Card</p>
-                <p>For 100 Peoples</p>
+                <p><?php echo "{$concert['fac1']}"; ?></p>
+                <p><?php echo "{$concert['fac2']}"; ?></p>
+                <p><?php echo "{$concert['fac3']}"; ?></p>
+                <p><?php echo "{$concert['fac4']}"; ?></p>
+                <p>For <?php echo "{$concert['people']}"; ?> Peoples</p>
                 </ul>
 
-                <div class="price">$90.00<span> $120.00</span></div>
+                <div class="price">BDT <?php echo "{$concert['dprice']}"; ?> <span> BDT <?php echo "{$concert['rprice']}"; ?></span></div>
+
+                 <?php
+                }
+                ?>
+                
                 <a href="#" class="btn">Book now</a>
             </div>
         </div>
@@ -254,15 +308,24 @@
             <img src="images/p-4.jpg" alt="">
             <div class="content">
                 <h3>for anniversary</h3>
+                <?php
+                while($anniversary=$result_anni -> fetch_assoc())
+                {
+                ?>
                 <ul>
-                <p>Decoration</p>
-                <p>Music and Photos</p>
-                <p>Food and Drinks</p>
-                <p>Invitation Card</p>
-                <p>For 100 Peoples</p>
+                <p><?php echo "{$anniversary['fac1']}"; ?></p>
+                <p><?php echo "{$anniversary['fac2']}"; ?></p>
+                <p><?php echo "{$anniversary['fac3']}"; ?></p>
+                <p><?php echo "{$anniversary['fac4']}"; ?></p>
+                <p>For <?php echo "{$anniversary['people']}"; ?> Peoples</p>
                 </ul>
 
-                <div class="price">$90.00<span> $120.00</span></div>
+                <div class="price">BDT <?php echo "{$anniversary['dprice']}"; ?> <span> BDT <?php echo "{$anniversary['rprice']}"; ?></span></div>
+
+                 <?php
+                }
+                ?>
+                
                 <a href="#" class="btn">Book now</a>
             </div>
         </div>
@@ -271,15 +334,24 @@
             <img src="images/p-5.jpg" alt="">
             <div class="content">
                 <h3>for picnic</h3>
+                <?php
+                while($picnic=$result_pic -> fetch_assoc())
+                {
+                ?>
                 <ul>
-                <p>Decoration</p>
-                <p>Music and Photos</p>
-                <p>Food and Drinks</p>
-                <p>Invitation Card</p>
-                <p>For 100 Peoples</p>
+                <p><?php echo "{$picnic['fac1']}"; ?></p>
+                <p><?php echo "{$picnic['fac2']}"; ?></p>
+                <p><?php echo "{$picnic['fac3']}"; ?></p>
+                <p><?php echo "{$picnic['fac4']}"; ?></p>
+                <p>For <?php echo "{$picnic['people']}"; ?> Peoples</p>
                 </ul>
 
-                <div class="price">$90.00<span> $120.00</span></div>
+                <div class="price">BDT <?php echo "{$picnic['dprice']}"; ?> <span> BDT <?php echo "{$picnic['rprice']}"; ?></span></div>
+
+                 <?php
+                }
+                ?>
+                
                 <a href="#" class="btn">Book now</a>
             </div>
         </div>
@@ -288,15 +360,24 @@
             <img src="images/p-6.jpg" alt="">
             <div class="content">
                 <h3>others Event</h3>
+                <?php
+                while($others=$result_others -> fetch_assoc())
+                {
+                ?>
                 <ul>
-                <p>Decoration</p>
-                <p>Music and Photos</p>
-                <p>Food and Drinks</p>
-                <p>Invitation Card</p>
-                <p>For 100 Peoples</p>
+                <p><?php echo "{$others['fac1']}"; ?></p>
+                <p><?php echo "{$others['fac2']}"; ?></p>
+                <p><?php echo "{$others['fac3']}"; ?></p>
+                <p><?php echo "{$others['fac4']}"; ?></p>
+                <p>For <?php echo "{$others['people']}"; ?> Peoples</p>
                 </ul>
 
-                <div class="price">$90.00<span> $120.00</span></div>
+                <div class="price">BDT <?php echo "{$others['dprice']}"; ?> <span> BDT <?php echo "{$others['rprice']}"; ?></span></div>
+
+                 <?php
+                }
+                ?>
+                
                 <a href="#" class="btn">Book now</a>
             </div>
         </div>
