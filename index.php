@@ -131,8 +131,8 @@
 
 <section class="home" id="home">
     <div class="content">
-        <h3> Adventure is worthwhile</h3>
-        <p> Dicover new  places with us, advanture awaits</p>
+        <h3> Every Event Is Worthwhile</h3>
+        <p> Discover unforgettable moments with us</p>
         <a href="#" class="btn"> Discover More</a>
     </div>
 
